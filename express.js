@@ -69,6 +69,6 @@ app.listen(3000, function(){
 
 var bp = [{
   low: 80,
-  height: 90
+  high: 90
 }];
 
