@@ -58,6 +58,20 @@ app.get('/api/bps/', function(req, res, next) {
   res.send(bp);
 })
 
+
+app.get('/api/bpdata/', function(req, res, next) {
+  lowValues = [];
+  highValues = [];
+  bp.forEach(function(element) {
+    lowValues.push(element.low);
+    highValues.push(element.high);
+  });
+  res.send({
+    lowValues: lowValues,
+    highValues: highValues
+  });
+});
+
 app.post('/api/bp', function(req, res, next) {
   bp.push(req.body);
   res.send(bp);
