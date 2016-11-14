@@ -60,15 +60,18 @@ app.get('/api/bps/', function(req, res, next) {
 
 
 app.get('/api/bpdata/', function(req, res, next) {
-  lowValues = [];
-  highValues = [];
-  bp.forEach(function(element) {
+  let lowValues = [];
+  let highValues = [];
+  let xValues = [];
+  bp.forEach(function(element, index) {
     lowValues.push(element.low);
     highValues.push(element.high);
+    xValues.push(String(index));
   });
   res.send({
     lowValues: lowValues,
-    highValues: highValues
+    highValues: highValues,
+    xValues: xValues
   });
 });
 
